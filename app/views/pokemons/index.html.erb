@@ -27,22 +27,13 @@
 <% end %>
 
 <br>
-<table width="50%" align="center">
-  <thead>
-    <tr>
-      <th></th>
-      <th>Pokedex ID</th>
-      <th>Name</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
+<table width="33%" align="center">
 
   <tbody>
     <% @pokemons.each do |pokemon| %>
       <tr>
         <td align="center"><img src=<%= pokemon.sprite %>></td>
-        <td align="center"><h1><%= pokemon.kanto_id %></h1></td>
-        <td align="center"><h1><%= link_to pokemon.name.upcase, pokemon %></h1></td>
+        <td align="left"><h1><%= link_to pokemon.name.upcase, pokemon %></h1></td>
       </tr>
     <% end %>
     <tr>

@@ -1,21 +1,13 @@
 Pokemon.connection
 
-PokeApi.get(:type).to_s.split(',').each do |t|
-  if t.include? '@name='
-    type = t.split('@name="')[1].chomp('"')
-    @all_types.append(type)
-  end
-end
-
 count = 1
 151.times do
-#3.times do
   i = count.to_s
   info = PokeApi.get(pokemon: i)
   species = PokeApi.get(pokemon_species: i)
 
   @p_name = info.name
-  @c_rate = species.capture_rate          # TO DO: capture rate needs to be percentage
+  @c_rate = ((species.capture_rate.to_f/256)*100).to_s
   @sprite = info.sprites.front_default
   @shape = species.shape.name
   @types = []
