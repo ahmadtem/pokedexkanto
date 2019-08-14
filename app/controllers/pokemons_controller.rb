@@ -5,6 +5,7 @@ class PokemonsController < ApplicationController
   # GET /pokemons
   # GET /pokemons.json
   def index
+    populate
     #    @pokemon_list = Pokemon.all
     if params[:types].present?
       t = '%'+ params[:types] +'%'
