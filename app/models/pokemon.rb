@@ -8,6 +8,7 @@ class Pokemon < ApplicationRecord
     end
   end
 
+  # TO DO refractor this github code
   def self.to_csv
     CSV.generate do |csv|
       csv << column_names

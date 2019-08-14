@@ -1,11 +1,10 @@
 class PokemonsController < ApplicationController
-  #before_action :populate
+  #to_prepare :populate
   #  before_action :set_pokemon, only: [:show, :edit, :update, :destroy]
 
   # GET /pokemons
   # GET /pokemons.json
   def index
-    populate
     #    @pokemon_list = Pokemon.all
     if params[:types].present?
       t = '%'+ params[:types] +'%'
@@ -98,9 +97,9 @@ class PokemonsController < ApplicationController
   end
 
   def populate
-    # install poke-api gem or add it to gemfile
+      # install poke-api gem or add it to gemfile
     Pokemon.connection
-    #Pokemon.delete_all
+      #Pokemon.delete_all
 
     PokeApi.get(:type).to_s.split(',').each do |t|
       if t.include? '@name='
@@ -110,8 +109,8 @@ class PokemonsController < ApplicationController
     end
 
     count = 1
-    151.times do
-    #9.times do
+    #151.times do
+    9.times do
       i = count.to_s
       info = PokeApi.get(pokemon: i)
       species = PokeApi.get(pokemon_species: i)
