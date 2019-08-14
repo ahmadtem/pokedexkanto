@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  kanto_id: 1
+  name: MyString
+  types: MyString
+  shape: MyString
+  capture_rate: 1
+  sprite: MyString
+
+two:
+  kanto_id: 1
+  name: MyString
+  types: MyString
+  shape: MyString
+  capture_rate: 1
+  sprite: MyString

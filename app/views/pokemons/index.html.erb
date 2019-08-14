@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+
+<table width="100%">
+  <th><%= link_to "GRASS", root_path(:types => "grass") %></th>
+  <th><%= link_to "POISON", root_path(:types => "poison") %></th>
+  <th><%= link_to "FIRE", root_path(:types => "fire") %></th>
+  <th><%= link_to "FLYING", root_path(:types => "flying") %></th>
+  <th><%= link_to "WATER", root_path(:types => "water") %></th>
+  <th><%= link_to "BUG", root_path(:types => "bug") %></th>
+  <th><%= link_to "NORMAL", root_path(:types => "normal") %></th>
+  <th><%= link_to "ELECTRIC", root_path(:types => "electric") %></th>
+  <th><%= link_to "FAIRY", root_path(:types => "fairy") %></th>
+  <th><%= link_to "FIGHTING", root_path(:types => "fighting") %></th>
+  <th><%= link_to "PSYCHIC", root_path(:types => "psychic") %></th>
+  <th><%= link_to "ROCK", root_path(:types => "rock") %></th>
+  <th><%= link_to "STEEL", root_path(:types => "steel") %></th>
+  <th><%= link_to "ICE", root_path(:types => "ice") %></th>
+  <th><%= link_to "GHOST", root_path(:types => "ghost") %></th>
+  <th><%= link_to "DRAGON", root_path(:types => "dragon") %></th>
+  <th><%= link_to "Clear", root_path(@pokemon) %></th>
+</table>
+
+<img src="https://camo.githubusercontent.com/1a4b11888ddf9f2b7a9353d6b69503e634e8704c/68747470733a2f2f692e696d6775722e636f6d2f415975745a4f462e706e67" style="width:100%">
+
+<%= form_tag(root_path, method: :get) do %>
+  <%= text_field_tag(:search, params[:search], size: "175", placeholder: "Search Pokemon") %>
+<% end %>
+
+<br>
+<table width="50%" align="center">
+  <thead>
+    <tr>
+      <th></th>
+      <th>Pokedex ID</th>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pokemons.each do |pokemon| %>
+      <tr>
+        <td align="center"><img src=<%= pokemon.sprite %>></td>
+        <td align="center"><h1><%= pokemon.kanto_id %></h1></td>
+        <td align="center"><h1><%= link_to pokemon.name.upcase, pokemon %></h1></td>
+      </tr>
+    <% end %>
+    <tr>
+      <td align="right"><%= link_to "Download as CSV", root_path(:format => "csv") %></td>
+      <td align="center"><%= link_to "Download as XML", root_path(:format => "xml") %></td>
+      <td align="left"><%= link_to "Download as JSON", root_path(:format => "json") %></td>
+    </tr>
+  </tbody>
+</table>
+
+
