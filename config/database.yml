@@ -86,4 +86,4 @@ production:
   <<: *default
   database: pokedexkanto_production
   username: pokedexkanto
-  password: <%= ENV['POKEDEXKANTO_DATABASE_PASSWORD'] %>
+  password: dbpass
